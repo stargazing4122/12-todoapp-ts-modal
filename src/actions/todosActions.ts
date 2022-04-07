@@ -17,6 +17,10 @@ export type TodosAction =
         todoId: string;
       }
     }
+  | {
+      type: 'update todo';
+      payload: Todo;
+    }
 
 // synchronous actions
 
@@ -37,4 +41,9 @@ export const doTodosDeleteTodo = ( todoId: string ): TodosAction => ({
   payload: {
     todoId,
   }
+});
+
+export const doTodosUpdateTodo = ( todo: Todo ): TodosAction => ({
+  type: "update todo",
+  payload: todo,
 });

@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import { TodoContext } from '../context/TodoContext';
 import { Todo } from '../interfaces/interfaces';
 import { doTodosDeleteTodo, doTodosToggleState } from '../actions/todosActions';
+import { doUiOpenModal } from '../actions/uiActions';
+import { doTodoEditSetEdit } from '../actions/todoEditActions';
 
 interface Props {
   todo: Todo;
@@ -12,13 +14,14 @@ interface Props {
 export const RowTodo: FC<Props> = ({ todo }) => {
 
   // hooks
-  const { todosDispatch } = useContext(TodoContext);
+  const { todosDispatch, uiDispatch, todoEditDispatch } = useContext(TodoContext);
   const { id, todoName, state } = todo;
 
   // functions
   const handleToggleClick = () => {
     todosDispatch( doTodosToggleState( id ));
   }
+
   const handleDeleteClick = () => {
     
     Swal.fire({
@@ -42,10 +45,9 @@ export const RowTodo: FC<Props> = ({ todo }) => {
   }
   
   const handleEditClick = () => {
-    todosDispatch( doTodosToggleState( id ));
+    todoEditDispatch( doTodoEditSetEdit( todo ) );
+    uiDispatch( doUiOpenModal() );
   }
-
-
 
   return (
     <tr>
@@ -64,6 +66,7 @@ export const RowTodo: FC<Props> = ({ todo }) => {
         <button
           className="btn btn-info"
           type="button"
+          onClick={ handleEditClick }
         >
           <i className="fa-solid fa-pencil"></i>
         </button>

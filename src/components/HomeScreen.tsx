@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form } from './Form'
+import { TodoModal } from './TodoModal'
 import { TodosTable } from './TodosTable'
 
 export const HomeScreen = () => {
@@ -17,6 +18,8 @@ export const HomeScreen = () => {
         </div>
 
       </div>
+
+      <TodoModal />
     </>
   )
 }
