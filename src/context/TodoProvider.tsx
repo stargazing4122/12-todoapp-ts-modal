@@ -15,6 +15,7 @@ export const TodoProvider: FC<Props> = ({ children }) => {
   const [todosState, todosDispatch] = useReducer( todosReducer, [], todosInit)
   const value = {
     todosState,
+    todosDispatch
   }
   return (
     <TodoContext.Provider value={ value }>
