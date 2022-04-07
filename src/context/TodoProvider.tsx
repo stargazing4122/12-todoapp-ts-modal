@@ -1,4 +1,4 @@
-import { FC, useReducer } from 'react'
+import { FC, useEffect, useReducer } from 'react'
 import { todosInit } from '../init/todosInit';
 import { todosReducer } from '../reducers/todosReducer';
 import { TodoContext } from './TodoContext';
@@ -12,7 +12,11 @@ interface Props {
 export const TodoProvider: FC<Props> = ({ children }) => {
 
   //hooks
-  const [todosState, todosDispatch] = useReducer( todosReducer, [], todosInit)
+  const [todosState, todosDispatch] = useReducer( todosReducer, [], todosInit);
+  useEffect(() => {
+    localStorage.setItem( 'list-todos-ts', JSON.stringify(todosState));
+  }, [todosState])
+
   const value = {
     todosState,
     todosDispatch

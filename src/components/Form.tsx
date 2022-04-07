@@ -11,7 +11,7 @@ interface FormData {
 }
 
 const initialForm: FormData= {
-  id: (new Date().getTime()).toString(),
+  id: '',
   todo: '',
   state: false,
 }
@@ -26,7 +26,7 @@ export const Form = () => {
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newTodo: Todo = {
-      id,
+      id: (new Date().getTime()).toString(),
       todoName: todo,
       state,
     }
