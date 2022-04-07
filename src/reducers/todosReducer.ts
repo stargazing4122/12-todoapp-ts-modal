@@ -3,9 +3,15 @@ import { Todo } from "../interfaces/interfaces";
 
 export const todosReducer = (state: Todo[], action: TodosAction ): Todo[] => {
   switch (action.type) {
-    case "add todo":
+    case 'add todo':
       return [...state, {...action.payload}]
 
+    case 'toggle state':
+      return state.map( todo => (
+        todo.id === action.payload.todoId
+          ? {...todo, state: !todo.state}
+          : todo
+      ))
     default:
       return state;
   }
