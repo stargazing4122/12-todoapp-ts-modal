@@ -36,7 +36,7 @@ export const Form = () => {
 
   return (
     <div>
-      <h2>Add a new todo</h2>
+      <h2 className="mb-5">Add todo</h2>
       <form onSubmit={ handleFormSubmit }>
         <input
           className="form-control mb-3"

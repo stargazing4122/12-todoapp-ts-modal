@@ -56,7 +56,7 @@ export const RowTodo: FC<Props> = ({ todo }) => {
       <td> { state ? '✔️' : '❌'} </td>
       <td>
         <button
-          className="btn btn-success"
+          className="btn btn-success me-2"
           type="button"
           onClick={ handleToggleClick }
         >
@@ -64,7 +64,7 @@ export const RowTodo: FC<Props> = ({ todo }) => {
         </button>
 
         <button
-          className="btn btn-info"
+          className="btn btn-info me-2"
           type="button"
           onClick={ handleEditClick }
         >
@@ -72,7 +72,7 @@ export const RowTodo: FC<Props> = ({ todo }) => {
         </button>
 
         <button
-          className="btn btn-danger"
+          className="btn btn-danger me-2"
           type="button"
           onClick={ handleDeleteClick }
         >
