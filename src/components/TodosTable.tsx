@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { TodoContext } from '../context/TodoContext'
+import { RowTodo } from './RowTodo';
 
 export const TodosTable = () => {
+
+  // hooks
+  const { todosState } = useContext(TodoContext);
+
   return (
     <>
       <h2>List of Todos</h2>
@@ -14,31 +20,14 @@ export const TodosTable = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{ new Date().getTime() }</td>
-            <td>Learn english</td>
-            <td>❌✔️</td>
-            <td>
-              <button
-                className="btn btn-success"
-                type="button"
-              >
-                <i className="fa-solid fa-arrow-right-arrow-left"></i>
-              </button>
-              <button
-                className="btn btn-info"
-                type="button"
-              >
-                <i className="fa-solid fa-pencil"></i>
-              </button>
-              <button
-                className="btn btn-danger"
-                type="button"
-              >
-                <i className="fa-solid fa-trash"></i>
-              </button>
-            </td>
-          </tr>
+          {
+            todosState.map( todo => (
+              <RowTodo  
+                key={todo.id}
+                todo={ todo }
+              />
+            ))
+          }
         </tbody>
       </table>
     </>
