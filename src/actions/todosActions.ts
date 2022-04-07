@@ -11,6 +11,12 @@ export type TodosAction =
         todoId: string;
       }
     }
+  | {
+      type: 'delete todo';
+      payload: {
+        todoId: string;
+      }
+    }
 
 // synchronous actions
 
@@ -24,4 +30,11 @@ export const doTodosToggleState = ( todoId: string ): TodosAction => ({
   payload: {
     todoId,
   }
-})
+});
+
+export const doTodosDeleteTodo = ( todoId: string ): TodosAction => ({
+  type: "delete todo",
+  payload: {
+    todoId,
+  }
+});

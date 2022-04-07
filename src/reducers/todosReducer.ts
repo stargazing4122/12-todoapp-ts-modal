@@ -11,7 +11,11 @@ export const todosReducer = (state: Todo[], action: TodosAction ): Todo[] => {
         todo.id === action.payload.todoId
           ? {...todo, state: !todo.state}
           : todo
-      ))
+      ));
+
+    case 'delete todo':
+      return state.filter( todo => todo.id !== action.payload.todoId );
+    
     default:
       return state;
   }
