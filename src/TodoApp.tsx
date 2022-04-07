@@ -1,12 +1,12 @@
 import React from 'react'
-import { TodoScreen } from './components/TodoScreen'
+import { HomeScreen } from './components/HomeScreen'
 import { TodoProvider } from './context/TodoProvider';
 
 export const TodoApp = () => {
   return (
     <>
       <TodoProvider>
-        <TodoScreen />
+        <HomeScreen />
       </TodoProvider>
     </>
   )
